@@ -1,0 +1,11 @@
+ .bordered table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.bordered tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+.thumbnail {
+    width: 150px;
+}

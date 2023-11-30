@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analyzer</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+
+
+    <form action="/" method="post">
+        <input type="text" name="site_url" id="" placeholder="Enter URL">
+        <input type="submit" name="submit" id="">
+    </form>
+    <br />
+
+    {% if summary %}
+    <img src="http://img.youtube.com/vi/{{video_id}}/sddefault.jpg" alt="thumbnail" class="thumbnail">
+    <p>Url: <a href="{{ video_url }}" target="_blank">{{ video_url }}</a></p>
+    <h3>Summary</h3>
+    <table>
+        <tr>
+            <td>Positive:</td>
+            <td>{{ summary['positive'] }}</td>
+        </tr>
+        <tr>
+            <td>Negative:</td>
+            <td>{{ summary['negative'] }}</td>
+        </tr>
+        <tr>
+            <td>Comments:</td>
+            <td> {{summary['total_comments'] }}</td>
+        </tr>
+        <tr>
+            <td>Ratio:</td>
+            <td> {{ summary['ratio'] }} </td>
+        </tr>
+    </table>
+
+
+    <table class="bordered">
+        <tr>
+            <th>Comment</th>
+            <th>Sentiment</th>
+        </tr>
+        {% for comment, sentiment in comments  %}
+        <tr>
+            <td>{{ comment }}</td>
+            <td>{{ sentiment }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    
+</body>
+</html>
