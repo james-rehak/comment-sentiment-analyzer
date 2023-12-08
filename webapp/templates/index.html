@@ -15,6 +15,11 @@
     </form>
     <br />
 
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif%}
     {% if summary %}
     <img src="http://img.youtube.com/vi/{{video_id}}/sddefault.jpg" alt="thumbnail" class="thumbnail">
     <p>Url: <a href="{{ video_url }}" target="_blank">{{ video_url }}</a></p>
